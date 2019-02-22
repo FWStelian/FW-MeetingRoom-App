@@ -1,0 +1,1 @@
+enum BookingType { INTERNAL, CLIENT, INTERVIEW }

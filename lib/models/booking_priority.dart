@@ -1,0 +1,1 @@
+enum BookingPriority { FLEXIBLE, DND }
