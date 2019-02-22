@@ -7,6 +7,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:fw_meetings/ui/screens/meeting_room_status.dart';
 
 void main() {
   // Set landscape orientation
@@ -25,7 +26,7 @@ class FwMeetingsApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Code Sample for material.Scaffold',
+      title: 'FW Meetings',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
@@ -46,25 +47,10 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
 
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Sample Code'),
-      ),
       body: Center(
-        child: Text('You have pressed the button $_count times.'),
+        child: RoomStatusWidget(),
       ),
-      bottomNavigationBar: BottomAppBar(
-        child: Container(
-          height: 50.0,
-        ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () => setState(() {
-              _count++;
-            }),
-        tooltip: 'Increment Counter',
-        child: Icon(Icons.add),
-      ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+
     );
   }
 }
