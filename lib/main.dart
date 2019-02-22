@@ -7,19 +7,18 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:fw_meetings/ui/screens/meeting_room_status.dart';
+import 'package:fw_meetings/ui/components/meeting_room_status.dart';
+import 'package:fw_meetings/ui/components/upcoming_meetings_widget.dart';
 
 void main() {
   // Set landscape orientation
-  SystemChrome.setPreferredOrientations([DeviceOrientation.landscapeLeft,
-  DeviceOrientation.landscapeRight
-  ])
+  SystemChrome.setPreferredOrientations(
+      [DeviceOrientation.landscapeLeft, DeviceOrientation.landscapeRight])
       .then((_) {
     SystemChrome.setEnabledSystemUIOverlays([]);
     runApp(FwMeetingsApp());
   });
 }
-
 
 class FwMeetingsApp extends StatelessWidget {
   // This widget is the root of your application.
@@ -47,10 +46,20 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
 
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-        child: RoomStatusWidget(),
+      body: Container(
+        child: Row(
+          children: <Widget>[
+            Expanded(
+              child: RoomStatusWidget(),
+              flex: 4,
+            ),
+            Expanded(
+              child: UpcomingMeetingsWidget(),
+              flex: 2,
+            ),
+          ],
+        ),
       ),
-
     );
   }
 }

@@ -4,21 +4,29 @@ import 'package:fw_meetings/models/user_model.dart';
 
 class BookingModel {
   BookingModel.fromJson(Map<String, dynamic> parsedJson)
-      : createdBy = UserModel.fromJson(parsedJson['createdBy']),
+      :
+        id = parsedJson['id'],
+        meetingRoomId = parsedJson['meeting_room_id'],
+        ownerId = parsedJson['owner_id'],
         name = parsedJson['name'],
-        startDate = _parsedDate(parsedJson['startDate']),
-        endDate = _parsedDate(parsedJson['endDate']),
-        type = parsedJson['type'],
-        priority = parsedJson["priority"],
-        attendees = _buildUserModelList(parsedJson["attendees"]);
+        startDate = _parsedDate(parsedJson['start_at']),
+        endDate = _parsedDate(parsedJson['end_at']);
 
-  final UserModel createdBy;
+//        type = parsedJson['type'],
+//        priority = parsedJson["priority"],
+//        attendees = _buildUserModelList(parsedJson["attendees"]
+// );
+
+  final int id;
+  final int meetingRoomId;
+  final int ownerId;
   final String name;
   final DateTime startDate;
   final DateTime endDate;
-  final BookingType type;
-  final BookingPriority priority;
-  final List<UserModel> attendees;
+
+//  final BookingType type;
+//  final BookingPriority priority;
+//  final List<UserModel> attendees;
 
   static DateTime _parsedDate(String timestamp) {
     DateTime parsed;

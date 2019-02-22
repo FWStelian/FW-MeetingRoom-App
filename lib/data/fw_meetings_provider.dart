@@ -5,9 +5,12 @@ import 'package:fw_meetings/models/booking_model.dart';
 import 'package:fw_meetings/models/room_model.dart';
 
 class FwMeetingsProvider {
+
+
   Future<List<BookingModel>> getMeetingsForRoom(String roomName) async {
     final response =
-    await http.get('https://jsonplaceholder.typicode.com/posts/1');
+    await http.get(
+        'https://fw-meeting-rooms.herokuapp.com/api/v1/meeting_rooms/4/meetings_today');
 
     if (response.statusCode == 200) {
       return _buildBookingModelList(json.decode(response.body));
