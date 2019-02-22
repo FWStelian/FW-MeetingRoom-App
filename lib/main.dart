@@ -6,10 +6,20 @@
 // connected to a callback that increments a counter.
 
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
-void main() => runApp(MyApp());
+void main() {
+  // Set landscape orientation
+  SystemChrome.setPreferredOrientations([DeviceOrientation.landscapeLeft,
+  DeviceOrientation.landscapeRight
+  ])
+      .then((_) {
+    runApp(FwMeetingsApp());
+  });
+}
 
-class MyApp extends StatelessWidget {
+
+class FwMeetingsApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
