@@ -14,6 +14,7 @@ void main() {
   DeviceOrientation.landscapeRight
   ])
       .then((_) {
+    SystemChrome.setEnabledSystemUIOverlays([]);
     runApp(FwMeetingsApp());
   });
 }
